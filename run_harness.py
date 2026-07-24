@@ -10,24 +10,23 @@ Usage:
     python run_harness.py
 
 Requires:
-    - The existing rag-project repo cloned/available locally, with its
-      src/ folder importable (adjust RAG_PROJECT_SRC below).
+    - The existing rag-project repo available locally, with its
+      src/ folder importable (adjust RAG_PROJECT_SRC / RAG_PROJECT_ROOT below).
     - Ollama running locally (`ollama serve`) if using the local model.
-    - A test_questions.json file (see load_test_questions below) with
-      your labeled question set from Week 2.
+    - A test_questions.json file in the SAME folder as this script.
 """
 
+import os
 import sys
 import re
 import json
 import time
-from pathlib import Path
 
 import pandas as pd
 
-# --- CONFIG: point this at your existing rag-project's src/ folder ---
-RAG_PROJECT_SRC = r"D:\project\rag-project\src"   # <-- update to your actual path
+# --- CONFIG: point these at your existing rag-project ---
 RAG_PROJECT_ROOT = r"D:\project\rag-project"
+RAG_PROJECT_SRC = os.path.join(RAG_PROJECT_ROOT, "src")
 sys.path.insert(0, RAG_PROJECT_SRC)
 
 from rag_pipeline import load_retriever, retrieve, generate_answer  # noqa: E402
@@ -51,7 +50,7 @@ def extract_fields(raw_answer: str) -> dict:
     }
 
 
-def load_test_questions(path="test_questions.json"):
+def load_test_questions(path):
     """
     Expected format — a list of dicts, one per test question:
     [
@@ -69,51 +68,66 @@ def load_test_questions(path="test_questions.json"):
         return json.load(f)
 
 
-def run_harness(test_questions, top_k=10, rerank_n=3):
-    import os
-    print("Loading retriever (embedding model + Chroma collection)...")
+def run_harness(test_questions, rag_project_root, top_k=10, rerank_n=3):
+    """
+    Runs the full retrieve -> rerank -> generate pipeline for each test question.
+
+    IMPORTANT: we chdir into the RAG project root for the ENTIRE duration of
+    this function (not just while loading the retriever), because rag_pipeline.py
+    references "chroma_experiments" as a path relative to the current working
+    directory. If we switch back too early, every retrieve() call afterward
+    silently returns zero results instead of raising an error.
+    """
     original_dir = os.getcwd()
-    os.chdir(RAG_PROJECT_ROOT)   # so relative "chroma_experiments" path resolves correctly
+    os.chdir(rag_project_root)
+
     try:
+        print("Loading retriever (embedding model + Chroma collection)...")
         model, collection = load_retriever()
+        print(f"Loaded. Running {len(test_questions)} test questions.\n")
+
+        results = []
+        for i, item in enumerate(test_questions, 1):
+            question = item["question"]
+            print(f"[{i}/{len(test_questions)}] {question}")
+
+            t0 = time.time()
+            chunks = retrieve(question, model, collection, top_k=top_k)
+            reranked = rerank(question, chunks, top_n=rerank_n)
+            prompt = build_prompt(question, reranked)
+            raw_answer = generate_answer(prompt)
+            elapsed = time.time() - t0
+
+            parsed = extract_fields(raw_answer)
+            retrieved_sources = list({c["source"] for c in reranked})
+
+            results.append({
+                "id": item.get("id", f"q_{i}"),
+                "question": question,
+                "category": item.get("category"),
+                "expected_source": item.get("expected_source"),
+                "ground_truth": item.get("ground_truth"),
+                "retrieved_sources": retrieved_sources,
+                **parsed,
+                "latency_sec": round(elapsed, 2),
+            })
+
+            print(f"    -> retrieved={retrieved_sources}  confidence={parsed['confidence']}  ({elapsed:.1f}s)\n")
+
+        return pd.DataFrame(results)
+
     finally:
-        os.chdir(original_dir)   # switch back so test_questions.json etc. still resolve correctly
-    print(f"Loaded. Running {len(test_questions)} test questions.\n")
-
-    results = []
-    for i, item in enumerate(test_questions, 1):
-        question = item["question"]
-        print(f"[{i}/{len(test_questions)}] {question}")
-
-        t0 = time.time()
-        chunks = retrieve(question, model, collection, top_k=top_k)
-        reranked = rerank(question, chunks, top_n=rerank_n)
-        prompt = build_prompt(question, reranked)
-        raw_answer = generate_answer(prompt)
-        elapsed = time.time() - t0
-
-        parsed = extract_fields(raw_answer)
-
-        results.append({
-            "id": item.get("id", f"q_{i}"),
-            "question": question,
-            "category": item.get("category"),
-            "expected_source": item.get("expected_source"),
-            "ground_truth": item.get("ground_truth"),
-            "retrieved_sources": list({c["source"] for c in reranked}),
-            **parsed,
-            "latency_sec": round(elapsed, 2),
-        })
-
-        print(f"    -> confidence={parsed['confidence']}  ({elapsed:.1f}s)\n")
-
-    return pd.DataFrame(results)
+        os.chdir(original_dir)
 
 
 if __name__ == "__main__":
-    test_questions = load_test_questions("test_questions.json")
-    df = run_harness(test_questions)
+    calibration_project_dir = os.getcwd()  # where this script + test_questions.json live
 
-    out_path = "results_raw.csv"
+    test_questions_path = os.path.join(calibration_project_dir, "test_questions.json")
+    test_questions = load_test_questions(test_questions_path)
+
+    df = run_harness(test_questions, rag_project_root=RAG_PROJECT_ROOT)
+
+    out_path = os.path.join(calibration_project_dir, "results_raw_v2_clean.csv")
     df.to_csv(out_path, index=False)
     print(f"\nSaved {len(df)} results to {out_path}")
