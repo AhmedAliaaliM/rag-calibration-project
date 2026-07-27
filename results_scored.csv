@@ -1,0 +1,43 @@
+id,question,category,confidence,correct,notes
+aq_01,What methods are used for multilingual hate speech detection?,answerable,HIGH,1,Evidence directly confirms SVM/Bi-LSTM claim; correct source retrieved
+aq_02,How does federated learning protect data privacy?,answerable,HIGH,0,Wrong paper retrieved (TinyML paper instead of federated learning paper); generic answer not specific to federated learning mechanism
+aq_03,What is BERTopic and how does it compare to LDA?,answerable,HIGH,1,Correct source; evidence text is somewhat garbled (extraction artifact) but topically on point
+aq_04,What deep learning model is used for demand forecasting?,answerable,HIGH,1,Evidence directly confirms LSTM claim; correct source
+aq_05,How is concept drift detected?,answerable,HIGH,1,Evidence reasonably supports answer; correct source
+aq_06,What features/signals detect fake news?,answerable,LOW,0,REVISED: answer claims features are "not specified" when the paper does discuss textual/social/propagation signals -- factually incomplete/incorrect despite appropriately low confidence
+aq_07,What is SHAP and how does it explain predictions?,answerable,HIGH,1,Content correct per evidence; retrieved a related paper (2303.00960) rather than originally expected 2103.00949 -- likely a test-set labeling issue not a system error
+aq_08,Main constraints of TinyML edge devices?,answerable,HIGH,1,Evidence supports low latency/bandwidth constraint claim; correct source
+aq_09,What is a data lake vs data warehouse?,answerable,HIGH,1,Evidence matches definition given; correct source
+aq_10,What features predict loan default?,answerable,HIGH,0,REVISED: answer lists only 2 features when the paper likely covers several predictive features; incomplete answer, not a full response to the question
+aq_11,How does transfer learning reuse pre-trained models?,answerable,HIGH,1,Evidence supports answer; correct source
+aq_12,What sensors are used for predictive maintenance?,answerable,HIGH,0,Wrong papers retrieved (TinyML + concept drift, not the predictive maintenance paper); confident answer from wrong source
+aq_13,How do LLMs contribute to video summarization?,answerable,HIGH,1,Evidence directly supports claim; correct source
+aq_14,What approach detects IoT anomalies?,answerable,HIGH,0,Original source paper deleted (corrupted extraction); system confidently answered from an unrelated predictive-maintenance paper instead of abstaining
+aq_15,What model architecture for human action recognition?,answerable,HIGH,1,Evidence supports CNN/ConvNet claim; correct source
+aq_16,What makes Apache Spark scalable?,answerable,HIGH,0,REVISED (ambiguous case): answer reflects this specific paper's actual focus (cross-language implementation comparison) rather than general Spark architecture; scored conservatively as incomplete relative to the question asked
+aq_17,What features for speech emotion recognition?,answerable,HIGH,1,Evidence vaguely supports claim (does not list specific features) but correct source and topically right
+aq_18,What CNN architecture for chest X-ray classification?,answerable,LOW,0,Answer garbled ("II"); system appropriately flagged LOW given it could not extract a real answer
+aq_19,What dataset evaluated hate speech models?,answerable,HIGH,1,Evidence directly confirms 16 sources/9 languages claim; correct source
+aq_20,What evaluation metrics for loan default models?,answerable,LOW,0,REVISED: this is a retrieval failure (paper does contain the answer), not honest abstention -- distinct failure mode from true unanswerable questions
+un_01,GPU architecture for speech emotion model in 2030?,unanswerable,LOW,1,Correctly abstained
+un_02,Federated learning accuracy on chest X-ray dataset?,unanswerable,LOW,1,Correctly abstained
+un_03,How many hospitals in churn study?,unanswerable,LOW,1,Correctly abstained
+un_04,CO2 cost of training BERTopic?,unanswerable,LOW,1,Correctly abstained
+un_05,Which platform banned fake news model?,unanswerable,HIGH,0,MISCALIBRATION: fabricated specific claim from an unrelated mention of Facebook in retrieved text
+un_06,Stock price impact of predictive maintenance?,unanswerable,LOW,1,Correctly abstained
+un_07,Author opinion on quantum computing + TinyML?,unanswerable,LOW,1,Correctly abstained
+un_08,Spark method performance on video game data?,unanswerable,LOW,1,Correctly abstained
+un_09,Salary of SHAP paper research team?,unanswerable,LOW,1,Correctly abstained
+un_10,Which government funded action recognition research?,unanswerable,LOW,1,Correctly abstained
+un_11,Smartphone model for IoT dataset collection?,unanswerable,LOW,1,Correctly abstained
+un_12,Did transfer learning paper test self-driving cars?,unanswerable,LOW,1,Correctly abstained
+un_13,Peer review rejection rate?,unanswerable,HIGH,0,MISCALIBRATION: fabricated by misattributing an unrelated statistic (55.7%) from a chest X-ray fairness paper as a rejection rate
+un_14,Data lake handling of blockchain data?,unanswerable,LOW,1,Correctly abstained
+un_15,Preferred programming IDE?,unanswerable,LOW,1,Correctly abstained
+dq_01,Concept drift vs IoT anomaly detection method?,distractor,LOW,1,Correctly avoided conflating the two methods
+dq_02,BERTopic same drift technique as concept drift paper?,distractor,LOW,1,Correctly avoided conflating
+dq_03,Same anomaly method for IoT and predictive maintenance?,distractor,LOW,1,Correctly avoided conflating
+dq_04,Same classification approach fake news vs hate speech?,distractor,LOW,1,Correctly avoided conflating
+dq_05,Same CNN for chest X-ray and action recognition?,distractor,LOW,1,Correctly avoided conflating
+dq_06,Loan default paper use SHAP like explainable AI paper?,distractor,LOW,0,REVISED: "No" answer given with zero supporting evidence -- an ungrounded assertion, not a safe abstention
+dq_07,Same LSTM for demand forecasting and speech emotion?,distractor,LOW,1,Correctly avoided conflating
