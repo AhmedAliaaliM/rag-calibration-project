@@ -1,0 +1,231 @@
+id,question,category,expected_source,ground_truth,retrieved_sources,raw_answer,answer,evidence,source,confidence,latency_sec,model
+aq_01,What methods are used for multilingual hate speech detection?,answerable,2004.06465v3.pdf,,['2004.06465v3.pdf'],"ANSWER: SVM, Bi-LSTM, and BERT are methods used for multilingual hate speech detection. 
+EVIDENCE: The authors mention that they ""used models such as SVM, and Bi-LSTM to build hate speech detection models."" 
+SOURCE: 2004.06465v3.pdf
+CONFIDENCE: HIGH","SVM, Bi-LSTM, and BERT are methods used for multilingual hate speech detection.","The authors mention that they ""used models such as SVM, and Bi-LSTM to build hate speech detection models.""",2004.06465v3.pdf,HIGH,97.65,llama3.2:3b
+aq_02,How does federated learning protect data privacy?,answerable,2203.12609v1.pdf,,['2102.01255v1.pdf'],"ANSWER: Federated learning protects data privacy by allowing data processing on device-level, resulting in better data protection and reduced risk of sensitive information being transmitted to the cloud or a central server.
+EVIDENCE: ""data processing on the device results in better data privacy and better data protection"" [Source 3: 2102.01255v1.pdf]
+SOURCE: 2102.01255v1.pdf
+CONFIDENCE: HIGH","Federated learning protects data privacy by allowing data processing on device-level, resulting in better data protection and reduced risk of sensitive information being transmitted to the cloud or a central server.","""data processing on the device results in better data privacy and better data protection"" [Source 3: 2102.01255v1.pdf]",2102.01255v1.pdf,HIGH,34.51,llama3.2:3b
+aq_03,What is BERTopic and how does it compare to LDA?,answerable,2212.08459v1.pdf,,['2212.08459v1.pdf'],"ANSWER: BERTopic is a topic modeling technique that uses the BERT model, while Latent Dirichlet Allocation (LDA) is another widely used topic modeling approach. BERTopic is more suitable for short documents due to its k-Means clustering method.
+EVIDENCE: ""BERTopic and LDA on multi-domain short text corpora"" describes an all-encompassing topic model performance of BERTopic, stating that it is the least susceptible to short documents. (Source 2)
+SOURCE: 2212.08459v1.pdf
+CONFIDENCE: HIGH","BERTopic is a topic modeling technique that uses the BERT model, while Latent Dirichlet Allocation (LDA) is another widely used topic modeling approach. BERTopic is more suitable for short documents due to its k-Means clustering method.","""BERTopic and LDA on multi-domain short text corpora"" describes an all-encompassing topic model performance of BERTopic, stating that it is the least susceptible to short documents. (Source 2)",2212.08459v1.pdf,HIGH,29.7,llama3.2:3b
+aq_04,What deep learning model is used for demand forecasting in this research?,answerable,2008.08522v1.pdf,,['2008.08522v1.pdf'],"ANSWER: Long Short-Term Memory (LSTM) neural networks.
+EVIDENCE: The paper states that the focus lies on fast-moving consumer goods and that an existing demand forecast solution uses several statistical and machine learning models, including LSTM-based approaches found in [6] and [9].
+SOURCE: 2008.08522v1.pdf
+CONFIDENCE: HIGH",Long Short-Term Memory (LSTM) neural networks.,"The paper states that the focus lies on fast-moving consumer goods and that an existing demand forecast solution uses several statistical and machine learning models, including LSTM-based approaches found in [6] and [9].",2008.08522v1.pdf,HIGH,25.03,llama3.2:3b
+aq_05,How is concept drift detected in the paper on concept drift?,answerable,2203.11070v1.pdf,,['2203.11070v1.pdf'],"ANSWER: Real concept drift detectors are used to detect changes in the predictor's performance, and subcategories have been derived from a probabilistic source of change.
+EVIDENCE: Fickle concept drift occurs when some data samples belong to two different classes.
+SOURCE: 2203.11070v1.pdf
+CONFIDENCE: HIGH","Real concept drift detectors are used to detect changes in the predictor's performance, and subcategories have been derived from a probabilistic source of change.",Fickle concept drift occurs when some data samples belong to two different classes.,2203.11070v1.pdf,HIGH,16.27,llama3.2:3b
+aq_06,What features or signals are used to detect fake news in this study?,answerable,2101.01142v1.pdf,,['2101.01142v1.pdf'],"ANSWER: The text is analyzed using NLP (Natural Language Processing) to detect fake news.
+EVIDENCE: ""Intuitively, the most obvious approach to automatically recognizing fake news is NLP""
+SOURCE: 2101.01142v1.pdf
+CONFIDENCE: HIGH",The text is analyzed using NLP (Natural Language Processing) to detect fake news.,"""Intuitively, the most obvious approach to automatically recognizing fake news is NLP""",2101.01142v1.pdf,HIGH,17.32,llama3.2:3b
+aq_07,What is SHAP and how does it explain model predictions?,answerable,2103.00949v1.pdf,,"['2303.00960v1.pdf', '2103.00949v1.pdf']","ANSWER: SHAP stands for SHapley Additive exPlanation, which is a method for explaining model predictions by attributing the contribution of each feature to the overall outcome. SHAP values show the change in expected model prediction when conditioning on that feature.
+EVIDENCE: Figure 2 from [5] in Source 2 and [13], [14] in Source 3.
+SOURCE: [2103.00949v1.pdf], [2303.00960v1.pdf]
+CONFIDENCE: HIGH","SHAP stands for SHapley Additive exPlanation, which is a method for explaining model predictions by attributing the contribution of each feature to the overall outcome. SHAP values show the change in expected model prediction when conditioning on that feature.","Figure 2 from [5] in Source 2 and [13], [14] in Source 3.","[2103.00949v1.pdf], [2303.00960v1.pdf]",HIGH,27.17,llama3.2:3b
+aq_08,What are the main constraints of running machine learning on TinyML edge devices?,answerable,2102.01255v1.pdf,,['2102.01255v1.pdf'],"ANSWER: The main constraints of running machine learning on TinyML edge devices include low latency and low communication bandwidth constraints.
+EVIDENCE: ...deploying machine learning and deep neural network models to the embedded, resource-constrained devices powered by microcontrollers (MCUs)... [Source 1: 2102.01255v1.pdf]
+CONFIDENCE: HIGH",The main constraints of running machine learning on TinyML edge devices include low latency and low communication bandwidth constraints.,"...deploying machine learning and deep neural network models to the embedded, resource-constrained devices powered by microcontrollers (MCUs)... [Source 1: 2102.01255v1.pdf]",,HIGH,18.75,llama3.2:3b
+aq_09,What is a data lake and how does it differ from a data warehouse?,answerable,2106.09592v2.pdf,,['2106.09592v2.pdf'],"ANSWER: A data lake is a flexible, scalable data storage solution that can store large amounts of raw data in its native format, allowing for easy access and analysis, whereas a data warehouse is primarily designed to provide faster query performance through schema-on-write and pre-aggregated data.
+EVIDENCE: ""In essence, a data lake is a flexible, scalable data storage solution..."" [Source 1: 2106.09592v2.pdf]
+CONFIDENCE: HIGH","A data lake is a flexible, scalable data storage solution that can store large amounts of raw data in its native format, allowing for easy access and analysis, whereas a data warehouse is primarily designed to provide faster query performance through schema-on-write and pre-aggregated data.","""In essence, a data lake is a flexible, scalable data storage solution..."" [Source 1: 2106.09592v2.pdf]",,HIGH,20.81,llama3.2:3b
+aq_10,What features are used to predict loan default in this paper?,answerable,2103.00949v1.pdf,,['2103.00949v1.pdf'],"ANSWER: The ""loan_amnt"" feature and the ""verified"" label are used to predict loan default, with the latter indicating that the customer is expected to fail to fully repay the loan.
+EVIDENCE: ""...this customer has been categorized as 'Default', meaning that they are expected to fail to fully repay the loan""
+SOURCE: 2103.00949v1.pdf
+CONFIDENCE: HIGH","The ""loan_amnt"" feature and the ""verified"" label are used to predict loan default, with the latter indicating that the customer is expected to fail to fully repay the loan.","""...this customer has been categorized as 'Default', meaning that they are expected to fail to fully repay the loan""",2103.00949v1.pdf,HIGH,20.0,llama3.2:3b
+aq_11,How does transfer learning reuse a pre-trained model for a new task?,answerable,2502.02722v1.pdf,,['2502.02722v1.pdf'],"ANSWER: Transfer learning reuses a pre-trained model by transferring knowledge from high-resource language to low-resource language.
+EVIDENCE: Model-transfer methods are based on transferring knowledge from high-resourcetolow-resourcelanguagesthrough pre-trained models
+SOURCE: 2502.02722v1.pdf
+CONFIDENCE: HIGH",Transfer learning reuses a pre-trained model by transferring knowledge from high-resource language to low-resource language.,Model-transfer methods are based on transferring knowledge from high-resourcetolow-resourcelanguagesthrough pre-trained models,2502.02722v1.pdf,HIGH,15.41,llama3.2:3b
+aq_12,What sensors or data are used for predictive maintenance in this paper?,answerable,2310.14949v1.pdf,,"['2203.11070v1.pdf', '2102.01255v1.pdf']","ANSWER: IMU, temperature sensors, chemical sensors, accelerometers.
+EVIDENCE: IMU, temperature sensors, chemical sensors, accelerometers are mentioned as types of sensors used in industrial monitoring applications.
+SOURCE: Source 2: 2102.01255v1.pdf
+CONFIDENCE: HIGH","IMU, temperature sensors, chemical sensors, accelerometers.","IMU, temperature sensors, chemical sensors, accelerometers are mentioned as types of sensors used in industrial monitoring applications.",Source 2: 2102.01255v1.pdf,HIGH,14.18,llama3.2:3b
+aq_13,How do LLMs contribute to video summarization in this research?,answerable,2504.11199v2.pdf,,['2504.11199v2.pdf'],"ANSWER: LLMs contribute to video summarization by leveraging contextual understanding capabilities and utilizing both textual data and general knowledge encoded in the model. This allows for more accurate summarization of videos.
+EVIDENCE: ""leveraging contextual understanding capabilities of LLMs for video summarization""
+SOURCE: [Source 1: 2504.11199v2.pdf]
+CONFIDENCE: HIGH",LLMs contribute to video summarization by leveraging contextual understanding capabilities and utilizing both textual data and general knowledge encoded in the model. This allows for more accurate summarization of videos.,"""leveraging contextual understanding capabilities of LLMs for video summarization""",[Source 1: 2504.11199v2.pdf],HIGH,21.42,llama3.2:3b
+aq_14,What approach is used to detect anomalies in IoT data?,answerable,2601.03085v1.pdf,,"['2203.11070v1.pdf', '2310.14949v1.pdf']","ANSWER: An online anomaly detection method using streaming data is proposed by Liu et al. (2021) based on fine-grained monitoring of industrial equipment.
+EVIDENCE: Thisapproachisgeneralenoughforourmethod- Todetectfaultoccurrenceinrealtime,anonline
+SOURCE: 2310.14949v1.pdf
+CONFIDENCE: HIGH",An online anomaly detection method using streaming data is proposed by Liu et al. (2021) based on fine-grained monitoring of industrial equipment.,"Thisapproachisgeneralenoughforourmethod- Todetectfaultoccurrenceinrealtime,anonline",2310.14949v1.pdf,HIGH,20.12,llama3.2:3b
+aq_15,What model architecture is used for human action recognition?,answerable,2208.03775v1.pdf,,['2208.03775v1.pdf'],"ANSWER: Convolutional Neural Networks (CNNs or ConVs), Recurrent Neural Networks, and Skeleton Information are used in the paper for human action recognition.
+EVIDENCE: [239] constructed a 3-layer SDA architecture for posed model is better than all published approaches in the human action recognition using skeleton information cap-tured by Kinect [12] sensor. Budiman et al. [242] have also highlightedhere.
+SOURCE: [2208.03775v1.pdf]
+CONFIDENCE: HIGH","Convolutional Neural Networks (CNNs or ConVs), Recurrent Neural Networks, and Skeleton Information are used in the paper for human action recognition.",[239] constructed a 3-layer SDA architecture for posed model is better than all published approaches in the human action recognition using skeleton information cap-tured by Kinect [12] sensor. Budiman et al. [242] have also highlightedhere.,[2208.03775v1.pdf],HIGH,22.94,llama3.2:3b
+aq_16,What makes Apache Spark scalable for large data processing according to this paper?,answerable,2510.19012v1.pdf,,['2510.19012v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The context does not provide any direct information about what makes Apache Spark scalable for large data processing. The papers discuss the performance of different programming languages and compare it with related works, but do not explain the scalability of Apache Spark in general terms.",Insufficient information,None found,N/A,"LOW
+
+The context does not provide any direct information about what makes Apache Spark scalable for large data processing. The papers discuss the performance of different programming languages and compare it with related works, but do not explain the scalability of Apache Spark in general terms.",16.98,llama3.2:3b
+aq_17,What features are extracted for speech emotion recognition in this study?,answerable,2406.07437v2.pdf,,['2406.07437v2.pdf'],"ANSWER: Five acoustic and prosodic features are mentioned as being used in the study.
+EVIDENCE: ""These five features encompass different speech emotional information.""
+SOURCE: 2406.07437v2.pdf
+CONFIDENCE: HIGH",Five acoustic and prosodic features are mentioned as being used in the study.,"""These five features encompass different speech emotional information.""",2406.07437v2.pdf,HIGH,14.37,llama3.2:3b
+aq_18,What CNN architecture is used to classify chest X-rays in this paper?,answerable,2502.10614v1.pdf,,['2502.10614v1.pdf'],"ANSWER: II
+EVIDENCE: None found specific architectures mentioned but the ""II"" is associated with CNN models evaluated in this study
+SOURCE: 2502.10614v1.pdf
+CONFIDENCE: LOW",II,"None found specific architectures mentioned but the ""II"" is associated with CNN models evaluated in this study",2502.10614v1.pdf,LOW,15.77,llama3.2:3b
+aq_19,What dataset was used to evaluate the hate speech detection models?,answerable,2004.06465v3.pdf,,['2004.06465v3.pdf'],"ANSWER: The authors looked into 16 publicly available sources in 9 different languages.
+EVIDENCE: ""We looked into the datasets available for hate speech and found 16 publicly3 available sources in 9 different languages4""
+SOURCE: [Source 2: 2004.06465v3.pdf]
+CONFIDENCE: HIGH",The authors looked into 16 publicly available sources in 9 different languages.,"""We looked into the datasets available for hate speech and found 16 publicly3 available sources in 9 different languages4""",[Source 2: 2004.06465v3.pdf],HIGH,17.11,llama3.2:3b
+aq_20,What evaluation metrics are used to evaluate the loan default prediction models?,answerable,2103.00949v1.pdf,,"['2406.07437v2.pdf', '2303.00960v1.pdf', '2412.03491v2.pdf']","ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The context does not provide information about loan default prediction models, only mentions customer churn rate and other general topics. The sources mentioned are related to F1-score, ensemble classifiers, and evaluation metrics in a more general sense, but do not specifically address loan default prediction models.",Insufficient information,None found,N/A,"LOW
+
+The context does not provide information about loan default prediction models, only mentions customer churn rate and other general topics. The sources mentioned are related to F1-score, ensemble classifiers, and evaluation metrics in a more general sense, but do not specifically address loan default prediction models.",16.25,llama3.2:3b
+un_01,What GPU architecture was used to train the speech emotion recognition model in the year 2030?,unanswerable,,,['2406.07437v2.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The context does not mention any specific year, let alone 2030. The papers discussed are from different years, but none of them provide information on the GPU architecture used to train a speech emotion recognition model in 2030.",Insufficient information,None found,N/A,"LOW
+
+The context does not mention any specific year, let alone 2030. The papers discussed are from different years, but none of them provide information on the GPU architecture used to train a speech emotion recognition model in 2030.",18.94,llama3.2:3b
+un_02,What was the federated learning paper's accuracy on the chest X-ray dataset?,unanswerable,,,['2203.12609v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The provided context does not mention the accuracy of the federated learning paper on the chest X-ray dataset. The papers discuss fairness in chest X-ray classifiers, debiasing methods, and public datasets, but do not provide specific information on the accuracy of the federated learning approach.",Insufficient information,None found,N/A,"LOW
+
+The provided context does not mention the accuracy of the federated learning paper on the chest X-ray dataset. The papers discuss fairness in chest X-ray classifiers, debiasing methods, and public datasets, but do not provide specific information on the accuracy of the federated learning approach.",22.4,llama3.2:3b
+un_03,How many hospitals participated in the customer churn study?,unanswerable,,,['2303.00960v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+There is no mention of hospitals participating in the customer churn study. The sources provide context about the study's findings on accuracy and customer behavior, but do not include any information about the number of hospitals involved.",Insufficient information,None found,N/A,"LOW
+
+There is no mention of hospitals participating in the customer churn study. The sources provide context about the study's findings on accuracy and customer behavior, but do not include any information about the number of hospitals involved.",14.34,llama3.2:3b
+un_04,What was the CO2 emissions cost of training the BERTopic model?,unanswerable,,,"['2008.08522v1.pdf', '2502.02722v1.pdf']","ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW",Insufficient information,None found,N/A,LOW,15.94,llama3.2:3b
+un_05,Which social media platform banned the fake news detection model from production use?,unanswerable,,,['2101.01142v1.pdf'],"ANSWER: Facebook
+EVIDENCE: ""This is the case of Facebook, that recently (May 2020) informed us that it is combating fake news by means of its Multimodal Content Analysis Tools, in addition to 35 thousand human supervisors""
+SOURCE: 2101.01142v1.pdf
+CONFIDENCE: HIGH",Facebook,"""This is the case of Facebook, that recently (May 2020) informed us that it is combating fake news by means of its Multimodal Content Analysis Tools, in addition to 35 thousand human supervisors""",2101.01142v1.pdf,HIGH,29.38,llama3.2:3b
+un_06,What was the stock price impact of deploying the predictive maintenance system?,unanswerable,,,"['2203.11070v1.pdf', '2310.14949v1.pdf', '2412.03491v2.pdf']","ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The provided context does not mention anything about stock prices or their impact, making it impossible to determine the answer to the question. The papers discuss predictive maintenance models, anomaly detection, and performance evaluation in the context of induction motors, but not stock prices.",Insufficient information,None found,N/A,"LOW
+
+The provided context does not mention anything about stock prices or their impact, making it impossible to determine the answer to the question. The papers discuss predictive maintenance models, anomaly detection, and performance evaluation in the context of induction motors, but not stock prices.",22.38,llama3.2:3b
+un_07,What is the author's opinion on quantum computing's impact on TinyML?,unanswerable,,,['2102.01255v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The context does not mention quantum computing at all, and instead discusses TinyML's potential to enable innovations in various fields and its ability to impact complex systems.",Insufficient information,None found,N/A,"LOW
+
+The context does not mention quantum computing at all, and instead discusses TinyML's potential to enable innovations in various fields and its ability to impact complex systems.",15.66,llama3.2:3b
+un_08,How does the Apache Spark paper's method perform on video game data?,unanswerable,,,['2510.19012v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The context does not mention video game data or how the Apache Spark algorithm performs specifically on that type of data. The papers only discuss the performance of Apache Spark in general, comparing it to other big data processing systems and languages, but do not provide any information about its performance on video game data.",Insufficient information,None found,N/A,"LOW
+
+The context does not mention video game data or how the Apache Spark algorithm performs specifically on that type of data. The papers only discuss the performance of Apache Spark in general, comparing it to other big data processing systems and languages, but do not provide any information about its performance on video game data.",20.0,llama3.2:3b
+un_09,What was the exact salary of the research team behind the SHAP paper?,unanswerable,,,"['2303.00960v1.pdf', '2103.00949v1.pdf']","ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW",Insufficient information,None found,N/A,LOW,15.52,llama3.2:3b
+un_10,Which country's government funded the human action recognition research?,unanswerable,,,['2208.03775v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The context does not provide any information about which country's government funded the human action recognition research. The sources mention the researchers' affiliations and their current work, but there is no mention of government funding or sponsorship.",Insufficient information,None found,N/A,"LOW
+
+The context does not provide any information about which country's government funded the human action recognition research. The sources mention the researchers' affiliations and their current work, but there is no mention of government funding or sponsorship.",19.51,llama3.2:3b
+un_11,What smartphone model was used to collect the IoT anomaly detection dataset?,unanswerable,,,['2310.14949v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The provided context does not mention any specific smartphone model being used for collecting the IoT anomaly detection dataset. The texts only discuss general concepts and approaches related to IoT, anomaly detection, and industrial contexts without providing details on the data collection process or equipment used.",Insufficient information,None found,N/A,"LOW
+
+The provided context does not mention any specific smartphone model being used for collecting the IoT anomaly detection dataset. The texts only discuss general concepts and approaches related to IoT, anomaly detection, and industrial contexts without providing details on the data collection process or equipment used.",19.44,llama3.2:3b
+un_12,Did the transfer learning paper test their method on self-driving cars?,unanswerable,,,"['2203.11070v1.pdf', '2208.03775v1.pdf']","ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The provided sources do not mention the testing of a transfer learning method on self-driving cars. While Source 2 mentions the author's Ph.D. thesis, which is related to learning and transfer learning from unlabeled data, it does not provide information about self-driving cars or the specific use case in question.",Insufficient information,None found,N/A,"LOW
+
+The provided sources do not mention the testing of a transfer learning method on self-driving cars. While Source 2 mentions the author's Ph.D. thesis, which is related to learning and transfer learning from unlabeled data, it does not provide information about self-driving cars or the specific use case in question.",21.68,llama3.2:3b
+un_13,What was the publication's peer review rejection rate before acceptance?,unanswerable,,,"['2203.11070v1.pdf', '2203.12609v1.pdf', '2101.01142v1.pdf']","ANSWER: The overall range of accepted papers is between 30.4% and 91.6%, indicating a significant variability in the rejection rates.
+EVIDENCE: Figure 4 in [Source 3: 2203.12609v1.pdf] displays accuracy percentages for CheXpert labeller on 1200 radiology reports, suggesting the range of accepted papers is between those values.
+SOURCE: [Source 3: 2203.12609v1.pdf]
+CONFIDENCE: HIGH","The overall range of accepted papers is between 30.4% and 91.6%, indicating a significant variability in the rejection rates.","Figure 4 in [Source 3: 2203.12609v1.pdf] displays accuracy percentages for CheXpert labeller on 1200 radiology reports, suggesting the range of accepted papers is between those values.",[Source 3: 2203.12609v1.pdf],HIGH,25.24,llama3.2:3b
+un_14,How does the data lake paper's architecture handle blockchain data specifically?,unanswerable,,,['2106.09592v2.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW",Insufficient information,None found,N/A,LOW,12.25,llama3.2:3b
+un_15,What programming language IDE did the researchers prefer while coding this project?,unanswerable,,,"['2510.19012v1.pdf', '2502.02722v1.pdf']","ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW",Insufficient information,None found,N/A,LOW,10.9,llama3.2:3b
+dq_01,How does the concept drift detection method differ from the anomaly detection method used in the IoT paper?,distractor,,,['2203.11070v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+There is no direct comparison made between concept drift detection and anomaly detection methods in the provided context. The context only discusses concept drift detection, its definition, and its relation to performance-based approaches, but does not mention IoT or anomaly detection specifically.",Insufficient information,None found,N/A,"LOW
+
+There is no direct comparison made between concept drift detection and anomaly detection methods in the provided context. The context only discusses concept drift detection, its definition, and its relation to performance-based approaches, but does not mention IoT or anomaly detection specifically.",17.9,llama3.2:3b
+dq_02,Does BERTopic's topic modeling approach use the same drift detection technique as the concept drift paper?,distractor,,,['2203.11070v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The provided context does not mention BERTopic or its topic modeling approach, making it impossible to determine if it uses the same drift detection technique as the concept drift paper. The context only discusses general aspects of research on concept drift and mentions specific papers (e.g., [15], [18]) but does not provide any information about BERTopic's approach.",Insufficient information,None found,N/A,"LOW
+
+The provided context does not mention BERTopic or its topic modeling approach, making it impossible to determine if it uses the same drift detection technique as the concept drift paper. The context only discusses general aspects of research on concept drift and mentions specific papers (e.g., [15], [18]) but does not provide any information about BERTopic's approach.",21.43,llama3.2:3b
+dq_03,Is the anomaly detection method in the IoT paper the same as the one used for predictive maintenance?,distractor,,,['2310.14949v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The question does not provide enough context to determine if the anomaly detection method described in the IoT paper is the same as the one used for predictive maintenance, and no direct comparison is made between the two methods.",Insufficient information,None found,N/A,"LOW
+
+The question does not provide enough context to determine if the anomaly detection method described in the IoT paper is the same as the one used for predictive maintenance, and no direct comparison is made between the two methods.",18.02,llama3.2:3b
+dq_04,Does the fake news detection paper use the same classification approach as the hate speech detection paper?,distractor,,,['2101.01142v1.pdf'],"ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The provided context mentions that the fake news detection paper uses ""advanced ML approaches"" and is unique by catching a different angle from other surveys, but it does not explicitly state or compare its classification approach to any specific paper, including the hate speech detection paper.",Insufficient information,None found,N/A,"LOW
+
+The provided context mentions that the fake news detection paper uses ""advanced ML approaches"" and is unique by catching a different angle from other surveys, but it does not explicitly state or compare its classification approach to any specific paper, including the hate speech detection paper.",17.6,llama3.2:3b
+dq_05,Is the CNN used for chest X-ray classification the same architecture used for human action recognition?,distractor,,,"['2502.10614v1.pdf', '2208.03775v1.pdf']","ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW",Insufficient information,None found,N/A,LOW,13.02,llama3.2:3b
+dq_06,Does the loan default paper use the same feature importance method (SHAP) as the explainable AI paper?,distractor,,,"['2303.00960v1.pdf', '2103.00949v1.pdf']","ANSWER: No, it does not explicitly mention using SHAP.
+EVIDENCE: None found
+SOURCE: 2103.00949v1.pdf
+CONFIDENCE: LOW","No, it does not explicitly mention using SHAP.",None found,2103.00949v1.pdf,LOW,17.32,llama3.2:3b
+dq_07,Is the LSTM used for demand forecasting the same model used for speech emotion recognition?,distractor,,,"['2008.08522v1.pdf', '2406.07437v2.pdf']","ANSWER: Insufficient information
+EVIDENCE: None found
+SOURCE: N/A
+CONFIDENCE: LOW
+
+The context does not provide enough information to directly answer whether the LSTM used for demand forecasting is the same as the one used for speech emotion recognition. The papers discuss the use of LSTMs in different contexts, but there is no explicit mention of a shared model or its applications.",Insufficient information,None found,N/A,"LOW
+
+The context does not provide enough information to directly answer whether the LSTM used for demand forecasting is the same as the one used for speech emotion recognition. The papers discuss the use of LSTMs in different contexts, but there is no explicit mention of a shared model or its applications.",23.19,llama3.2:3b
