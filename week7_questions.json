@@ -1,0 +1,6 @@
+[
+  {"id": "pq_01", "question": "List every constraint of running machine learning on TinyML edge devices mentioned in the paper.", "category": "partial", "expected_source": "2102.01255v1.pdf"},
+  {"id": "pq_02", "question": "List all the features used to predict loan default in this paper.", "category": "partial", "expected_source": "2103.00949v1.pdf"},
+  {"id": "pq_03", "question": "What are the five specific acoustic features extracted for speech emotion recognition?", "category": "partial", "expected_source": "2406.07437v2.pdf"},
+  {"id": "cq_01", "question": "When was BERTopic first introduced and what was it based on?", "category": "conflicting", "expected_source": "2212.08459v1.pdf"}
+]

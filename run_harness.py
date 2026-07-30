@@ -123,19 +123,26 @@ if __name__ == "__main__":
         default="ollama:llama3.2:3b",
         help="e.g. ollama:llama3.2:3b, ollama:mistral:7b, groq:llama-3.1-8b-instant",
     )
+    parser.add_argument(
+        "--questions",
+        default="test_questions.json",
+        help="Filename of the question set to run (must be in the same folder as this script).",
+    )
     args = parser.parse_args()
 
     generate_fn, model_name = get_generator(args.model)
     safe_model_name = model_name.replace(":", "-").replace(".", "_")
 
     calibration_project_dir = os.getcwd()
-    test_questions_path = os.path.join(calibration_project_dir, "test_questions.json")
+    test_questions_path = os.path.join(calibration_project_dir, args.questions)
     test_questions = load_test_questions(test_questions_path)
 
-    print(f"=== Running harness with model: {args.model} ===\n")
+    questions_tag = os.path.splitext(args.questions)[0]
+
+    print(f"=== Running harness with model: {args.model}, questions: {args.questions} ===\n")
     df = run_harness(test_questions, rag_project_root=RAG_PROJECT_ROOT, generate_fn=generate_fn)
     df["model"] = model_name
 
-    out_path = os.path.join(calibration_project_dir, f"results_{safe_model_name}.csv")
+    out_path = os.path.join(calibration_project_dir, f"results_{safe_model_name}_{questions_tag}.csv")
     df.to_csv(out_path, index=False)
     print(f"\nSaved {len(df)} results to {out_path}")
