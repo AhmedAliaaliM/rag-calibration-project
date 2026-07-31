@@ -44,6 +44,8 @@ col3.metric("Accuracy when LOW confidence", f"{low_acc:.1f}%", delta=f"{low_acc 
 st.markdown("---")
 
 # --- Chart: HIGH vs LOW accuracy per model ---
+import altair as alt
+
 st.subheader("Confidence Reliability by Model")
 chart_data = (
     df[df["confidence_clean"].isin(["HIGH", "LOW"])]
@@ -51,10 +53,23 @@ chart_data = (
     .mean()
     .mul(100)
     .reset_index()
-    .pivot(index="model", columns="confidence_clean", values="correct")
+    .rename(columns={"correct": "accuracy", "confidence_clean": "confidence"})
 )
-st.bar_chart(chart_data)
-st.caption("If confidence were well-calibrated, HIGH bars would be taller than LOW bars. Here, the opposite holds for every model.")
+
+chart = (
+    alt.Chart(chart_data)
+    .mark_bar()
+    .encode(
+        x=alt.X("model:N", title="Model"),
+        y=alt.Y("accuracy:Q", title="Accuracy (%)", scale=alt.Scale(domain=[0, 100])),
+        color=alt.Color("confidence:N", scale=alt.Scale(domain=["HIGH", "LOW"], range=["#e74c3c", "#2ecc71"])),
+        xOffset="confidence:N",
+        tooltip=["model", "confidence", "accuracy"],
+    )
+    .properties(height=400)
+)
+st.altair_chart(chart, use_container_width=True)
+st.caption("If confidence were well-calibrated, HIGH bars (red) would be taller than LOW bars (green). Here, the opposite holds for every model.")
 
 # --- Category breakdown ---
 st.subheader("Accuracy by Question Category")
